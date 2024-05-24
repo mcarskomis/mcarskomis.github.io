@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Formularz zgłoszeniowy</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <style>
+        fieldset {
+            width: 700px;
+            margin: 0 auto;
+        }
+        body {
+            font-family: Arial, sans-serif;
+          
+            margin: 0 auto; 
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            color: dimgray;
+        }
+
+        p {
+            text-align: center;
+        }
+        .container1 {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        .button {
+            padding: 10px 20px; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block; 
+            position: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Komis samochodowy MCARS</h1>
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Strona główna</a>
+        <a href="Samochody_nowe.html" target="_self">Samochody Nowe</a>
+        <a href="Samochody_uzywane.html" target="_self">Samochody Używane</a>
+        <a href="Wypozyczalnia.html " target="_self">Wypożyczalnia</a>
+        
+        <a href="Tabela_czesci.html" target="_self">Tabela części</a>
+        <a href="Kontakt.html" target="_self">Kontakt</a>
+        <a href="O_firmie.html" target="_self">O Firmie</a>
+        <a href="Czesci_zamienne.html" target="_self">Doposażenie</a>
+    </nav>
+    <br/>
+    <div class="container1">
+        <h2>Żaden samochod nie spełnia twoich wymagań? Wypełnij formularz a odezwiemy się do ciebie w przeciągu tygodnia!</h2>
+        <br />
+        <form action="mailto:mbiernat15@wp.pl" method="post" enctype="text/plain">
+            <fieldset>
+                <legend>Dane kontaktowe:</legend>
+                <label for="imie">Imię<em>*</em></label>
+                <input id="imie" name="name" placeholder="Podaj imię" autofocus required />
+                <br />
+                <label for="">Nazwisko<em>*</em></label>
+                <input id="nazwisko" name="surname" placeholder="Podaj nazwisko" required />
+                <br />
+                <label for="telefon">Nr telefonu<em>*</em></label>
+                <input id="telefon" name="phone" placeholder="(+48)xxx-xxx-xxx" />
+                <br />
+                <label for="">E-mail</label>
+                <input id="mail" name="email" type="email" required />
+                <br />
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Adres:</legend>
+                <label for="ulica">Ulica<em>*</em></label>
+                <input id="ulica" name="ulica" placeholder="Podaj ulice" autofocus required />
+                <br />
+                <label for="miejscowosc">Miejscowość<em>*</em></label>
+                <input id="miejscowosc" name="miejscowosc" placeholder="Podaj miejscowość" autofocus required />
+                <br />
+                <label for="">Kod podcztowy<em>*</em></label>
+                <input id="kodpodcztowy" name="kodpocztowy" placeholder="Podaj kod pocztowy" required />
+                <br />
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Preferencje dotyczące samochodu:</legend>
+                <label for="nadwozie">Rodzaj nadowzia</label>
+                <select id="nadwozie" name="nadwozie">
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Liftback">Liftback</option>
+                    <option value="Kombi">Kombi</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Crossover">Crossover</option>
+                    <option value="Van">Van</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Cabriolet">Cabriolet</option>
+                    <option value="Pick-up">Pick-up</option>
+                </select>
+                <br />
+                <label for="klasa">Klasa samochodu</label>
+                <select id="klasa" name="klasa">
+                    <option value="A">A – małe, mini</option>
+                    <option value="B">B – miejskie</option>
+                    <option value="C">C – kompaktowe – klasa niższa-średnia</option>
+                    <option value="D">D – klasa średnia – samochody rodzinne</option>
+                    <option value="E">E – klasa wyższa-średnia</option>
+                    <option value="F">F – luksusowe</option>
+                    <option value="S">S – sportowe</option>
+                    <option value="H">H – kabriolety</option>
+                    <option value="J">J – terenowe</option>
+                    <option value="M">M – vany</option>
+                </select>
+                <br />
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Liczba koni mechnicznych (65-1000)</legend>
+                <label for="tentacles">Wymagana liczba:</label>
+                <input type="number" id="konie_mechaniczne" name="konie_mechaniczne" min="65" max="1000" />
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Płeć</legend>
+                <label><input type="radio" name="gender" value="male"> Mężczyzna</label>
+                <br />
+                <label><input type="radio" name="gender" value="female"> Kobieta</label>
+                <br />
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Opis wymarzonego samochodu:</legend>
+                <textarea id="description" name="description" rows="4" cols="50"></textarea>
+                <br />
+                <br />
+                <button id="przycisk" class="button" onclick="goToPage()">Kliknij aby narysować samochód</button>
+                <script>
+                    document.getElementById('przycisk').addEventListener('click', function () {
+                        window.open('prezentacja.html', '_blank');
+                    });
+                </script>
+                <br />
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Załącznik</legend>
+                <label for="cv">Prześlij zdjęcie wymarzonego samochodu:</label><br />
+                <input type="file" id="img" name="img" accept=".jpg">
+                <br />
+
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Data wypełnienia formularza:</legend>
+                <label for="start">Data:</label>
+                <input type="date" id="start" name="trip-start" value="2024-03-31" min="2024-01-31" max="2050-01-01" />
+            </fieldset>
+            <br />
+            <p>
+                <input class="button" type="submit" value="Wyślij formularz">
+                <input class="button" type="reset" value="Kasuj dane w formularzu">
+            </p>
+            <br />
+            <br />
+            <br />
+
+        </form>
+        <script>
+            function goToPage() {
+                window.location.href = "Canvas.html"; 
+            }
+        </script>
+    </div>
+        <footer>
+            Projekt strony internetowej wykonany w ramach
+            zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. MICHAŁ BIERNAT
+        </footer>
+</body>
+</html>

@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOMIS SAMOCHOWY MBCARS</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <script src="licznikczasu.js" defer></script>
+    <script src="licznikwizyt.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 1px;
+            padding: 5px;
+        }
+
+        .left {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .right {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .image-container {
+            max-width: 150px;
+            margin: 0 auto;
+            box-shadow: 0 0 0px rgb(19 128 28);
+            margin: auto;
+            padding: 10px;
+            clear: both;
+            position: relative;
+            z-index: 1;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+
+        img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        h2 {
+            text-align: center;
+            color: dimgray;
+        }
+
+        .h33 {
+            text-align: center;
+            color: dimgray;
+        }
+
+        .pasek {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 20vh;
+            padding: 20px;
+            text-overflow: ellipsis;
+        }
+
+        .lewo,
+        .prawo {
+            flex: 1;
+        }
+
+        .srodek {
+            flex: 1;
+        }
+
+        h4 {
+            text-align: center;
+            color: dimgray;
+        }
+
+        .zegar {
+            max-width: 150px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            margin-right: auto;
+            background-color: rgba(43,124,66,255);
+            text-align: center;
+        }
+
+        .licznik {
+            max-width: 150px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            margin-left: auto;
+            background-color: rgba(43,124,66,255);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container1 {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        .container11 {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+        }
+
+        .footer {
+            z-index: 2; 
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+
+
+        <div class="container">
+            <div class="left">
+                <div class="zegar">
+                    <h3>Aktulany czas</h3>
+                    <p id="zegar"></p>
+                </div>
+                <br />
+                <div class="zegar">
+                    <h3>Data</h3>
+                    <p id="data"></p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="MCARS.jpg" alt="Logo">
+            </div>
+            <div class="right">
+                <div class="licznik">
+                    <h3>Licznik odwiedzin</h3>
+                    <p id="licznikOdwiedzin"></p>
+
+                </div>
+                <br />
+                <div class="licznik">
+
+                    <p id="czasPobytu"></p>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Strona główna</a>
+        <a href="Samochody_nowe.html" target="_self">Samochody Nowe</a>
+        <a href="Samochody_uzywane.html" target="_self">Samochody Używane</a>
+        <a href="Wypozyczalnia.html " target="_self">Wypożyczalnia</a>
+        <a href="Formularz_zgloszeniowy.html" target="_self">Formularz zgłoszenowy</a>
+        <a href="Tabela_czesci.html" target="_self">Tabela części</a>
+        <a href="Kontakt.html" target="_self">Kontakt</a>
+        <a href="O_firmie.html" target="_self">O Firmie</a>
+        <a href="Czesci_zamienne.html" target="_self">Doposażenie</a>
+    </nav>
+    <img src="komis.jpeg" alt="Rząd samochodów">
+    <br />
+    <br />
+    <div class="container1">
+        <h2>Kup łatwo swój samochód online!</h2>
+        <br />
+        <div class="h33">
+            <h3>Bez stresu i z każdego miejsca | Szeroka oferta najlepszych aut używanych | 21-dniowe prawo do zwrotu</h3>
+        </div>
+    </div>
+
+
+    <div class="container1">
+        <h2>Kup używany samochód na MCARS</h2>
+    </div>
+    <div class="container1">
+        <h2>Gwarancja jakości</h2><br />
+
+        <h4>Sprzedajemy samochody używane wyłącznie z własnego magazynu. Każdy z nich jest sprawdzany i w pełni naprawiany przez naszych ekspertów motoryzacyjnych. Otrzymujesz 1 rok gwarancji w cenie.</h4>
+    </div>
+    <div class="container1">
+        <h2>Konkurencyjne ceny</h2><br />
+        <h4>U nas otrzymujesz 21-dniową gwarancję zwrotu pieniędzy: dzięki temu nie bierzesz udziału tylko w szybkiej jeździe próbnej, ale w prawdziwym, codziennym teście. 21 dni, aby upewnić się, że Twój samochód naprawdę jest dla Ciebie idealny. </h4>
+    </div>
+    <div class="container1">
+        <h2>Pierwszy przegląd za darmo!</h2><br />
+        <h4>Oferujemy samochody używane wszystkich marek i modeli - na miarę Twojego budżetu. Zadbamy o to aby przygotować odpowiednio twój wymarzony samochód przed pierwszym wyjazdem..</h4>
+    </div>
+    <div class="container1">
+        <h2>Znajdź nas!</h2>
+        <div class="image-container">
+            <img id="FB" src="FB.avif" alt="Logo Facebook">
+        </div>
+        <script>
+            document.getElementById('FB').addEventListener('click', function () {
+                window.open('https://www.facebook.com/?locale=pl_PL', '_blank');
+            });
+        </script>
+        <div class="image-container">
+            <img id="IG" src="IG.png" alt="Logo Instagram" style="border-radius:15px; width:95px">
+        </div>
+        <script>
+            document.getElementById('IG').addEventListener('click', function () {
+                window.open('https://www.instagram.com/', '_blank');
+            });
+        </script>
+
+
+    </div>
+
+
+    <div id="clock-container">
+        <div id="zegar"></div>
+        <div id="data"></div>
+        <div id="czasPobytu"></div>
+        <div id="licznikOdwiedzin"></div>
+    </div>
+    
+  
+
+    <br />
+    <br />
+    <br />
+    <footer>
+        Projekt strony internetowej wykonany w ramach
+        zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. MICHAŁ BIERNAT
+    </footer>
+</body>
+</html>

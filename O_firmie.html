@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>O Firmie</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <style>
+        .container1 {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        .containerprez {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .containerprez img {
+                cursor: pointer;
+            }
+       
+        h2 {
+            text-align: center;
+            color: dimgray;
+        }
+        h6 {
+            text-align: center;
+            color: slategray;
+            
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Komis samochodowy MCARS</h1>
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Strona główna</a>
+        <a href="Samochody_nowe.html" target="_self">Samochody Nowe</a>
+        <a href="Samochody_uzywane.html" target="_self">Samochody Używane</a>
+        <a href="Wypozyczalnia.html " target="_self">Wypożyczalnia</a>
+        <a href="Formularz_zgloszeniowy.html" target="_self">Formularz zgłoszenowy</a>
+        <a href="Tabela_czesci.html" target="_self">Tabela części</a>
+        <a href="Kontakt.html" target="_self">Kontakt</a>
+        
+        <a href="Czesci_zamienne.html" target="_self">Doposażenie</a>
+
+    </nav>
+    <div class="container1">
+        <h2>Prezentacja o firmie.</h2><br/>
+        <h6>Kliknij w obraz!</h6>
+    </div>
+    <div class="containerprez">
+        
+        <img id="myImage" src="prezetacjatytul.png" alt="Logo" width="500">
+    </div>
+
+    <script>
+        document.getElementById('myImage').addEventListener('click', function () {
+            window.open('prezentacja.html', '_blank');
+        });
+    </script>
+    <footer>
+        Projekt strony internetowej wykonany w ramach
+        zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. MICHAŁ BIERNAT
+    </footer>
+
+</body>
+</html>

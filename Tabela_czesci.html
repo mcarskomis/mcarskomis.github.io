@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Sprzedaż cześci</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <script type="text/javascript">
+     function Czesci(nazwa_czesci, numer_katalogowy, id, ilosc,  netto, brutto)
+     {
+         this.nazwa_czesci = nazwa_czesci;
+         this.numer_katalogow = numer_katalogowy;
+         this.id = id;
+         this.ilosc = ilosc;
+         this.netto = netto;
+         this.brutto = brutto;
+     }
+
+     var Tab_Cze = new Array();
+        Tab_Cze[0] = new Czesci('HJJS89', 'Belka tylnia BMW', '1.', '2', '500,00 zł', '640,00 zł');
+        Tab_Cze[1] = new Czesci('DSFGH3', 'Klapa tylnia Fiat Tipo 2015', '2.', '1', '200,00 zł', '250,00 zł');
+        Tab_Cze[2] = new Czesci('JDSIA8', 'Lampa przednia prawa Opel Astr H', '3.', '2', '400,00 zł', '450,00 zł');
+        Tab_Cze[3] = new Czesci('97FDJH', 'Pokrywa silnika VW Caddy 2015', '4.', '1', '500,00 zł', '540,00 zł');
+        Tab_Cze[4] = new Czesci('09DJNS', 'Pokrywa silnika VW Transorter 6 NOWA', '5.', '1', '1500,00 zł', '1600,00 zł');
+        Tab_Cze[5] = new Czesci('IKASD8', 'Drzwi prawe Citroen Berlingo', '6.', '2', '500,00 zł', ' 640,00 zł');
+        Tab_Cze[6] = new Czesci('AKHSYS', 'Szyba czołowa BMW', '7.', '1', '800,00 zł', '950,00 zł');
+        Tab_Cze[7] = new Czesci('CO0978', 'Nadkole Prawe Przednie Audi A4 B9', '8.', '1', ' 600,00', '675,00 zł');
+        Tab_Cze[8] = new Czesci('0978SD', 'Zderzak VW Polo 2020', '9.', '1', '350,00 zł', ' 430,00 zł');
+        Tab_Cze[9] = new Czesci('KKD5S7', 'Lapa tylnia lewa Fiat Tipo 2015', '10.', '2', '550,00 zł', '670,00 zł');
+
+        function Tab_Cze_Gen(Tab)
+     {
+         var txt = '';
+
+         for (var x = 0; x < Tab.length; x++)
+         {
+             
+             txt += '<td>' + Tab[x].id + '</td>';
+             txt += '<td>' + Tab[x].nazwa_czesci + '</td>';
+             txt += '<td>' + Tab[x].numer_katalogow + '</td>';
+             txt += '<td>' + Tab[x].ilosc + '</td>';
+             txt += '<td>' + Tab[x].netto + '</td>';
+             txt += '<td>' + Tab[x].brutto + '</tr>';
+         }
+         var Tab_Body = document.getElementById("records");
+         Tab_Body.innerHTML = txt;
+     }
+    </script>
+    <style>
+        h2 {
+            text-align: center;
+            color: dimgray;
+        }
+        pokaz {
+            display: block;
+            margin: 20px auto;
+        }
+        ukryj {
+            display: block;
+            margin: 20px auto;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            display: inline-block;
+            margin: 0px auto;
+            
+        }
+        table {
+            border: 2px solid red;
+            padding: 0px;
+            border-spacing: 0px;
+            margin: 0 auto;
+        }
+      
+
+        thead {
+            background-color: #49A760;
+            text-align: center;
+            color: black;
+        }
+
+        tbody {
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 7px;
+            border-spacing: 0px;
+        }
+        
+
+     
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Komis samochodowy MCARS</h1>
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Strona główna</a>
+        <a href="Samochody_nowe.html" target="_self">Samochody Nowe</a>
+        <a href="Samochody_uzywane.html" target="_self">Samochody Używane</a>
+        <a href="Wypozyczalnia.html " target="_self">Wypożyczalnia</a>
+        <a href="Formularz_zgloszeniowy.html" target="_self">Formularz zgłoszenowy</a>
+        
+        <a href="Kontakt.html" target="_self">Kontakt</a>
+        <a href="O_firmie.html" target="_self">O Firmie</a>
+        <a href="Czesci_zamienne.html" target="_self">Doposażenie</a>
+    </nav>
+    <div>
+        <br />
+        <h2>Katalog dostępnych części:</h2>
+        <div class="container">
+            <button type="button" id="pokaz" onclick="Tab_Cze_Gen(Tab_Cze);">
+                Pokaż Katalog
+            </button>
+            <button type="button" id="ukryj" onclick="location.reload();">
+                Ukryj Katalog
+            </button>
+            </div>
+            <br /><br />
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Lp.</th>
+                        <th rowspan="2">Nazwa części</th>
+                        <th rowspan="2">Numer katalogowy</th>
+                        <th rowspan="2">Ilość</th>
+                        <th colspan="2">Cena</th>
+                    </tr>
+                    <tr>                      
+                        <th>Netto</th>
+                        <th>Brutto</th>
+                    </tr>
+                </thead>
+                <tbody  id="records">
+                   
+                </tbody>
+            </table>
+        </div>
+
+        
+        <footer>
+            Projekt strony internetowej wykonany w ramach
+            zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. MICHAŁ BIERNAT
+        </footer>
+</body>
+</html>

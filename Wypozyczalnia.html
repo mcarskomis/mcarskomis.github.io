@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Wypożyczalnia</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <style>
+        .h11 {
+            text-align: center;
+            color: dimgray;
+        }
+        h3 {
+            text-align: center;
+            color: dimgray;
+        }
+        #obrazek1 {
+            width: 400px;
+            height: auto;
+            
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            position: center;
+            margin: 5px; 
+            flex: 1;
+        }
+           
+        button:hover {
+            background-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .przycisksrodek {
+            text-align: center;
+            margin-top: 20px; 
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .gallery img {
+                max-width: 100%; 
+                max-height: 100%; 
+            }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Komis samochodowy MCARS</h1>
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Strona główna</a>
+        <a href="Samochody_nowe.html" target="_self">Samochody Nowe</a>
+        <a href="Samochody_uzywane.html" target="_self">Samochody Używane</a>
+        
+        <a href="Formularz_zgloszeniowy.html" target="_self">Formularz zgłoszenowy</a>
+        <a href="Tabela_czesci.html" target="_self">Tabela części</a>
+        <a href="Kontakt.html" target="_self">Kontakt</a>
+        <a href="O_firmie.html" target="_self">O Firmie</a>
+        <a href="Czesci_zamienne.html" target="_self">Doposażenie</a>
+    </nav>
+    <br />
+    <br />
+    <div class="h11">
+        <div class="container">
+            <h1> Odkryj wolność podróżowania z naszą wypożyczalnią samochodów!</h1>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <h3>
+            Zapewniamy Ci niezawodne i komfortowe pojazdy, które umożliwią Ci realizację każdej podróży. Niezależnie od celu wyjazdu - czy to rodzinne wakacje, biznesowy wyjazd czy spontaniczna eskapada - mamy odpowiedni samochód dla Ciebie.
+
+            Dlaczego warto wybrać naszą wypożyczalnię:
+
+            Szeroki wybór samochodów różnych klas i marek
+            Elastyczne warunki wynajmu, dopasowane do Twoich potrzeb
+            Konkurencyjne ceny i atrakcyjne promocje
+            Profesjonalna obsługa i wsparcie na każdym etapie
+
+            Zarezerwuj swój samochód już dziś i ciesz się swobodą podróżowania bez ograniczeń!
+
+        </h3>
+    </div>
+    <br />
+
+    <div class="container">
+        <h3>Kliknij aby pokazać możliwe pojazdy do wypożyczenia.</h3>
+        <br />
+        <div class="przycisksrodek">
+            <button class="button" type="button" onclick="pokazObrazek()">
+                Pokaż
+            </button>
+            <button class="button" type="button" onclick="ukryjObrazek()">
+                Ukryj
+            </button>
+            <button class="button" type="button" onclick="nastepnyObrazek()">
+                Następny
+            </button>
+            <button class="button" type="button" onclick="poprzedniObrazek()">
+                Poprzedni
+            </button>
+            <button class="button" type="button" onclick="pierwszyObrazek()">
+                Pierwszy
+            </button>
+            <button class="button" type="button" onclick="ostatniObrazek()">
+                Ostatni
+            </button>
+        </div>
+        <div class="gallery">
+            <img id="obrazek1" src="terenowawyp.jpg" alt="Obrazek 1" style="display: none;">
+            <img id="obrazek2" src="maluch.png" alt="Obrazek 2" style="display: none;">
+            <img id="obrazek3" src="lawetawyp.jpg" alt="Obrazek 3" style="display: none;">
+            <img id="obrazek4" src="buswyp.jpg" alt="Obrazek 4" style="display: none;">
+            <img id="obrazek5" src="busosobowywyp.png" alt="Obrazek 5" style="display: none;">
+            <img id="obrazek6" src="atvwyp.jpg" alt="Obrazek 6" style="display: none;">
+            <img id="obrazek7" src="przyczepkawyp.jpg" alt="Obrazek 7" style="display: none;">
+        </div>
+
+        <script>
+            var obrazki = ["terenowawyp.jpg", "maluch.png", "lawetawyp.jpg", "buswyp.jpg", "busosobowywyp.png", "atvwyp.jpg", "przyczepkawyp.jpg",];
+            var indexObrazka = 0;
+            var obrazek = document.getElementById('obrazek1');
+
+            function pokazObrazek() {
+                var obrazek = document.getElementById('obrazek1');
+                obrazek.style.display = 'block';
+            }
+            function poprzedniObrazek() {
+                indexObrazka = (indexObrazka - 1 + obrazki.length) % obrazki.length;
+                obrazek.src = obrazki[indexObrazka];
+            }
+
+            function nastepnyObrazek() {
+                indexObrazka = (indexObrazka + 1) % obrazki.length;
+                obrazek.src = obrazki[indexObrazka];
+            }
+
+            function ukryjObrazek() {
+                obrazek.style.display = 'none';
+            }
+            function pierwszyObrazek() {
+                indexObrazka = 0;
+                obrazek.src = obrazki[indexObrazka];
+            }
+
+            function ostatniObrazek() {
+                indexObrazka = obrazki.length - 1;
+                obrazek.src = obrazki[indexObrazka];
+            }
+
+        </script>
+    </div>
+    <br />
+    <div class="h11">
+        <div class="container">
+            <h1> Oblicz cenę wypożyczenia na dowolnie wybrany przez ciebie okres.</h1>
+            <br />
+            <br />
+            <div class="item">
+                <h3>Jeep 2019 Wrangler</h3>
+                <p>Cena za 1 dzień: <span class="price">500</span> PLN</p>
+            </div>
+            <br />
+            <div class="item">
+                <h3>Fiat 126p. 1991</h3>
+                <p>Cena za 1 dzień: <span class="price">200</span> PLN</p>
+            </div>
+            <br />
+            <div class="item">
+                <h3>Mercedes-Benz Sprinter 519</h3>
+                <p>Cena za 1 dzień: <span class="price">150</span> PLN</p>
+            </div>
+            <br />
+            <div class="item">
+                <h3>Fiat Ducato 2.3</h3>
+                <p>Cena za 1 dzień: <span class="price">200</span> PLN</p>
+            </div>
+            <br />
+            <div class="item">
+                <h3>Opel Vivaro Long 9 osobowy</h3>
+                <p>Cena za 1 dzień: <span class="price">240</span> PLN</p>
+            </div>
+            <br />
+            <div class="item">
+                <h3>Buggy/ATV</h3>
+                <p>Cena za 1 dzień: <span class="price">400</span> PLN</p>
+            </div>
+            <br />
+            <div class="item">
+                <h3>Przyczepak 750kg</h3>
+                <p>Cena za 1 dzień: <span class="price">120</span> PLN</p>
+            </div>
+            <br />
+
+            <label for="item">Wybierz przedmiot:</label>
+            <select id="item">
+                <option value="500">Jeep 2019 Wrangler</option>
+                <option value="200">Fiat 126p. 1991</option>
+                <option value="150">Mercedes-Benz Sprinter 519</option>
+                <option value="200">Fiat Ducato 2.3</option>
+                <option value="240">Opel Vivaro Long 9 osobowy</option>
+                <option value="400">Buggy/ATV</option>
+                <option value="120">Przyczepak 750kg</option>
+            </select>
+
+            <label for="days">Liczba dni:</label>
+            <input type="number" id="days" min="1" value="1">
+
+            <button class="button" onclick="calculateCost()">Oblicz koszt</button>
+
+            <div id="totalCost"></div>
+        </div>
+
+        <script>
+            function calculateCost() {
+                const selectedItemId = document.getElementById('item').value;
+                const days = parseInt(document.getElementById('days').value);
+                const itemPrice = parseFloat(selectedItemId);
+
+                const totalCost = itemPrice * days;
+
+                document.getElementById('totalCost').textContent = `Koszt wypożyczenia: ${totalCost.toFixed(2)} PLN`;
+            }
+        </script>
+    </div>
+    <br />
+    <br />
+    <br />
+    <footer>
+        Projekt strony internetowej wykonany w ramach
+        zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. MICHAŁ BIERNAT
+    </footer>
+</body>
+</html>

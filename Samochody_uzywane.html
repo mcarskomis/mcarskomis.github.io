@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Samochody Używane</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <script src="javascript.js" defer></script>
+    <script src="licznikczasu.js" defer></script>
+    <style>
+        h2 {
+            text-align: center;
+            color: dimgray;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+            .container img {
+                max-width: 30%;
+                height: auto;
+                cursor: pointer;
+            }
+
+        .car {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+            .car div {
+                margin-left: 20px;
+            }
+
+            .car h3 {
+                margin-top: 0;
+            }
+
+        #fullscreen-image1 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+            #fullscreen-image1 img {
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: auto;
+                cursor: pointer;
+            }
+
+        #fullscreen-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+            #fullscreen-image img {
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: auto;
+                cursor: pointer;
+            }
+
+        .nav-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 999;
+        }
+
+        .nav-arrow {
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .nav-arrows1 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 999;
+        }
+
+        .nav-arrow1 {
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .close-button1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Komis samochodowy MCARS</h1>
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Strona główna</a>
+        <a href="Samochody_nowe.html" target="_self">Samochody Nowe</a>
+        
+        <a href="Wypozyczalnia.html " target="_self">Wypożyczalnia</a>
+        <a href="Formularz_zgloszeniowy.html" target="_self">Formularz zgłoszenowy</a>
+        <a href="Tabela_czesci.html" target="_self">Tabela części</a>
+        <a href="Kontakt.html" target="_self">Kontakt</a>
+        <a href="O_firmie.html" target="_self">O Firmie</a>
+        <a href="Czesci_zamienne.html" target="_self">Doposażenie</a>
+    </nav>
+    <div class="container">
+        <h2>Nasza oferta</h2>
+    </div>
+    <div>
+        <div class="container">
+
+            <div class="car">
+                <img id="carImage" src="P1.png" alt="Samochód">
+                <div>
+                    <h3>Volkswagen Passat 2.0 TSI Elegance DSG</h3>
+                    <p>Rok produkcji: 2019</p>
+                    <p>Cena: 87 900 zł</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="fullscreen-image">
+            <div class="nav-arrows">
+                <div class="nav-arrow" id="prevArrow">&lt;</div>
+                <div class="nav-arrow" id="nextArrow">&gt;</div>
+            </div>
+            <div class="close-button">×</div>
+            <img src="P1.png" alt="Samochód">
+        </div>
+
+        <script>
+            var images = ["P1.png", "P2.jpg", "P3.jpg", "P4.jpg", "P5.jpg"];
+            var currentIndex = 0;
+            var carImage = document.getElementById('carImage');
+            var fullscreenImage = document.getElementById('fullscreen-image');
+            var prevArrow = document.getElementById('prevArrow');
+            var nextArrow = document.getElementById('nextArrow');
+            var closeButton = document.querySelector('.close-button');
+
+
+            function updateFullscreenImage() {
+                var imageUrl = images[currentIndex];
+                fullscreenImage.querySelector('img').src = imageUrl;
+            }
+
+
+            carImage.addEventListener('click', function () {
+                fullscreenImage.style.display = 'block';
+                updateFullscreenImage();
+            });
+
+
+            prevArrow.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateFullscreenImage();
+            });
+
+
+            nextArrow.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateFullscreenImage();
+            });
+
+            closeButton.addEventListener('click', function () {
+                fullscreenImage.style.display = 'none';
+            });
+        </script>
+    </div>
+
+    <div class="container">
+
+        <div class="car">
+            <img id="carImage1" src="B1.jpg" alt="Samochód">
+            <div>
+                <h3> Citroën BERLING</h3>
+                <p>Rok produkcji: 2019</p>
+                <p>Cena: 87 900 zł</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="fullscreen-image1">
+        <div class="nav-arrows">
+            <div class="nav-arrow" id="prevArrow1">&lt;</div>
+            <div class="nav-arrow" id="nextArrow1">&gt;</div>
+        </div>
+        <div class="close-button1">×</div>
+        <img src="B1.jpg" alt="Samochód">
+    </div>
+
+    <script>
+        var images1 = ["B1.jpg", "B2.jpg", "B3.jpg", "B4.jpg", "B5.jpg"];
+        var currentIndex1 = 0;
+        var carImage1 = document.getElementById('carImage1');
+        var fullscreenImage1 = document.getElementById('fullscreen-image1');
+        var prevArrow1 = document.getElementById('prevArrow1');
+        var nextArrow1 = document.getElementById('nextArrow1');
+        var closeButton1 = document.querySelector('.close-button1');
+        function updateFullscreenImage1() {
+            var imageUrl1 = images1[currentIndex1];
+            fullscreenImage1.querySelector('img').src = imageUrl1;
+        }
+
+        carImage1.addEventListener('click', function () {
+            fullscreenImage1.style.display = 'block';
+            updateFullscreenImage1();
+        });
+
+        prevArrow1.addEventListener('click', function () {
+            currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length;
+            updateFullscreenImage1();
+        });
+
+        nextArrow1.addEventListener('click', function () {
+            currentIndex1 = (currentIndex1 + 1) % images1.length;
+            updateFullscreenImage1();
+        });
+
+        closeButton1.addEventListener('click', function () {
+            fullscreenImage1.style.display = 'none';
+        });
+    </script>
+
+
+
+    <br />
+    <br />
+    <br />
+    <footer>
+        Projekt strony internetowej wykonany w ramach
+        zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. MICHAŁ BIERNAT
+    </footer>
+</body>
+</html>
